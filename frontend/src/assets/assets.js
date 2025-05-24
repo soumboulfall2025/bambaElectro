@@ -24,12 +24,13 @@ import trash from './trash-solid.svg';
 import user from './user-solid.svg';
 import xmark from './xmark-solid.svg';
 import magnifyingGlass from './magnifying-glass-solid.svg';
-import hero from './BAMBA.png';
+import hero from './herosection.jpg';
 import support from './headset-solid.svg';
 import retour from './certificate-solid.svg';
 import dropdown from './caret-down-solid.svg';
 import star from './star-solid.svg';
 import bin from './bin_icon.png'
+import logo from './bmb.png'
 const products = [
   {
     id: 1,
@@ -40,7 +41,7 @@ description: "Congélateur ASTECH FRN222ST No Frost 6 Tiroirs /Modéle : FRN222S
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -52,7 +53,7 @@ description: "Congélateur ASTECH FRN422TG No Frost 7 Tiroirs /Modéle : FRN422T
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -64,7 +65,7 @@ description: "Congélateur ASTECH vertical PA240 8T aluminium /Modéle : PA240 /
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -76,7 +77,7 @@ description: "Congélateur ASTECH vertical",
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -88,7 +89,7 @@ description: "Réfrigérateur spacieux avec congélateur intégré.",
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -100,7 +101,7 @@ description: "Téléviseur QLED 65 pouces avec une qualité d'image exceptionnel
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "SmartTv",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -112,7 +113,7 @@ description: "Téléviseur Android 85 pouces avec une qualité d'image exception
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "SmartTv",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -124,7 +125,7 @@ description: "Google TV 32GT3022A 32 pouces avec une qualité d'image exceptionn
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "SmartTv",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
  {
@@ -136,7 +137,7 @@ description: "Google TV 43GT3022A 43 pouces avec une qualité d'image exceptionn
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "SmartTv",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
  {
@@ -148,7 +149,7 @@ description: "Google TV 50GT3022 ASTECH 50 pouces avec une qualité d'image exce
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "SmartTv",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -160,7 +161,7 @@ description: "Google TV Astech 55 pouces QLED avec une Barre de SON Système Goo
 category: "ElectroMenager",
 bestSeller: false,
 subCategory: "SmartTv",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
  {
@@ -172,7 +173,7 @@ description: "Google TV Astech 65 pouces QLED avec une Barre de SON Système Goo
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "SmartTv",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
  {
@@ -184,7 +185,7 @@ description: "Refrigérateur FV740DD-GR vitrine 2portes FV-740DD-GR /Modéle : F
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
   {
@@ -196,7 +197,7 @@ description: "Réfrigérateur ASTECH FC-234CM-OG combiné 3T /Modéle : FC-234CM
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
  {
@@ -208,7 +209,7 @@ description: "Réfrigérateur ASTECH FC267(CM-VM)OG combiné 3T /Modéle : FC267
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
  {
@@ -220,7 +221,7 @@ description: "Réfrigérateur ASTECH FC370INO-OG combiné 4T no frost ino /Modé
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
 {
@@ -232,7 +233,7 @@ description: "Congelateur Horizontal Astech ",
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
 {
@@ -244,7 +245,7 @@ description: "Congelateur Horizontal Astech",
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
 {
@@ -256,7 +257,7 @@ description: "Congelateur Horizontal Astech",
 category: "ElectroMenager",
 bestSeller: true,
 subCategory: "Machine",
-sizes: ["S", "M", "L", "XL"],
+sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
 ];
@@ -285,6 +286,7 @@ const assets = {
     stripedFashionShirt4,
     stripedFashionShirt10,
     stripedFashionShirt11,
+    logo
 
     
   },

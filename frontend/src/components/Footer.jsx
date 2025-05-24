@@ -1,11 +1,12 @@
 import React from 'react'
+import assets from '../assets/assets'
 
 const Footer = () => {
   return (
     <div>
         <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
             <div>
-                <h1 className='mb-5 w-32'>Bamba Electro</h1>
+                <h1 className='mb-5 w-32'><img className='w-36' src={assets.images.logo} alt="" /></h1>
                 <p className='w-full md:w-2/3 text-gray-600'>
                     BambaElectro est une boutique en ligne spécialisée dans la vente d'électroménager et de meubles. Nous proposons une large gamme de produits de qualité pour répondre à tous vos besoins. Notre objectif est de vous offrir une expérience d'achat agréable et pratique, avec des prix compétitifs et un service client exceptionnel.
                     <br />
