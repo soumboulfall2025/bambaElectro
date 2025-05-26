@@ -13,12 +13,22 @@ const RelatedProducts = ({Category, sousCategory}) => {
             let productsCopy = products.slice()
             productsCopy = productsCopy.filter((item)=>Category === item.category)
             productsCopy = productsCopy.filter((item)=>sousCategory === item.subCategory)
+            console.log('Related products images:', productsCopy.map(p => p.image))
 
             setRelated(productsCopy.slice(0,5));
             
         }
 
     },[])
+
+
+
+
+
+
+
+
+    
   return (
     <div className='my-24'>
         <div className='text-center text-3xl py-2'>
@@ -26,9 +36,21 @@ const RelatedProducts = ({Category, sousCategory}) => {
 
         </div>
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
-            {related.map((item,index)=>(
-                <ProductItem key={index} id={item.id} name={item.name} price={item.price} image={item.image} />
-            ))}
+            {related.map((item, index) => {
+  // Si image est un tableau, prends la première image, sinon prends l'image telle quelle
+  const imageUrl = Array.isArray(item.image) ? item.image[0] : item.image;
+
+  return (
+    <ProductItem 
+      key={index} 
+      id={item.id} 
+      name={item.name} 
+      price={item.price} 
+      image={imageUrl} 
+    />
+  )
+})}
+
 
         </div>
 
