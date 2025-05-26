@@ -5,7 +5,7 @@ import Title from '../components/Title'
 import ProductItem from '../components/ProductItem'
 
 const Collection = () => {
-  const { products , search , showSearch } = useContext(ShopContext)
+  const { products, search, showSearch } = useContext(ShopContext)
   const [showFilters, setShowFilters] = useState(false)
   const [filterProducts, setFilterProducts] = useState([])
   const [Category, setCategory] = useState([])
@@ -35,7 +35,7 @@ const Collection = () => {
 
   const applyFilter = () => {
     let productsCopy = products.slice()
-    if (showSearch && search){
+    if (showSearch && search) {
       productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
     }
     if (Category.length > 0) {
@@ -45,21 +45,21 @@ const Collection = () => {
       productsCopy = productsCopy.filter(item => SousCategory.includes(item.subCategory))
     }
     setFilterProducts(productsCopy)
-    
+
   }
 
   const sortProduct = (e) => {
     let fpCopy = filterProducts.slice()
-    switch (sortType){
+    switch (sortType) {
       case 'low-high':
         setFilterProducts(fpCopy.sort((a, b) => a.price - b.price))
         break;
       case 'high-low':
         setFilterProducts(fpCopy.sort((a, b) => b.price - a.price))
         break;
-        default:
-          applyFilter()
-          break;
+      default:
+        applyFilter()
+        break;
     }
   }
 
@@ -69,9 +69,9 @@ const Collection = () => {
   useEffect(() => {
     applyFilter()
 
-  }, [Category, SousCategory, search, showSearch])
+  }, [Category, SousCategory, search, showSearch, products])
 
-  
+
   useEffect(() => {
     sortProduct()
 
@@ -126,7 +126,7 @@ const Collection = () => {
         <div className='flex justify-between text-base sm:text-2xl mb-4'>
           <Title text1={'ALL'} text2={'COLLECTION'} />
           {/* PRODUCTS SORT */}
-          <select onChange={(e) =>setSortType(e.target.value)} className='border-2 border-gray-300 text-sm px-2'>
+          <select onChange={(e) => setSortType(e.target.value)} className='border-2 border-gray-300 text-sm px-2'>
             <option value="relevant">Sort by : Relevant</option>
             <option value="low-high">Sort by : Low to High</option>
             <option value="high-low">Sort by : High to Low</option>
@@ -139,7 +139,14 @@ const Collection = () => {
         <div className='grid grid-cols-2 md:grid-cols3 lg:grid-cols-4 gap-4 gap-y-6'>
           {
             filterProducts.map((item, index) => (
-              <ProductItem key={index} name={item.name} id={item.id} price={item.price} image={item.image} />
+              <ProductItem
+                key={index}
+                name={item.name}
+                id={item._id} // ✅ CORRIGÉ
+                price={item.price}
+                image={Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : ''}
+              />
+
             ))
           }
 

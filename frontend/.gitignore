@@ -7,16 +7,43 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Environnements (ne jamais versionner)
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# Node
 node_modules
+
+# Output
 dist
 dist-ssr
-*.local
+build/
+out/
+coverage/
+.cache/
+.eslintcache
 
-# Editor directories and files
+# Static assets (si générés dynamiquement)
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+*.ico
+
+# Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Visual Studio
 *.suo
 *.ntvs*
 *.njsproj

@@ -5,7 +5,7 @@ import stripedFashionShirt2 from './congelateur/gongelateur1.jpg';
 import stripedFashionShirt5 from './congelateur/congelateur2.jpeg';
 
 import stripedFashionShirt4 from './congelateur/congelateur3.jpeg';
-import stripedFashionShirt8 from './Astechandroidtv85.jpg';
+
 import stripedFashionShirt9 from './smarttv/32pouces.jpeg';
 import stripedFashionShirt10 from './smarttv/43pouces.jpeg';
 import stripedFashionShirt11 from './smarttv/50pouces.jpeg';
@@ -31,6 +31,10 @@ import dropdown from './caret-down-solid.svg';
 import star from './star-solid.svg';
 import bin from './bin_icon.png'
 import logo from './bmb.png'
+import logpaydunya from './logo_doc.png'
+import stripe from './stripe_logo.png'
+import contct from './contact_img.png'
+
 const products = [
   {
     id: 1,
@@ -92,30 +96,7 @@ subCategory: "Machine",
 sizes: [ "G", "P"],
 colors: ["Rouge", "Bleu", "Vert"],
 },
-  {
-id: 6,
-name: "TV QLED 65 pouces",
-price: 29.99,
-image: [stripedFashionShirt8],
-description: "Téléviseur QLED 65 pouces avec une qualité d'image exceptionnelle.",
-category: "ElectroMenager",
-bestSeller: false,
-subCategory: "SmartTv",
-sizes: [ "G", "P"],
-colors: ["Rouge", "Bleu", "Vert"],
-},
-  {
-id: 7,
-name: "TV Android 85 pouces",
-price: 29.99,
-image: [stripedFashionShirt8],
-description: "Téléviseur Android 85 pouces avec une qualité d'image exceptionnelle.",
-category: "ElectroMenager",
-bestSeller: true,
-subCategory: "SmartTv",
-sizes: [ "G", "P"],
-colors: ["Rouge", "Bleu", "Vert"],
-},
+ 
   {
 id: 8,
 name: "Google TV 32GT3022A 32 pouces",
@@ -281,12 +262,14 @@ const assets = {
   
     hero,
     stripedFashionShirt2,
-    stripedFashionShirt8,
     stripedFashionShirt9,
     stripedFashionShirt4,
     stripedFashionShirt10,
     stripedFashionShirt11,
-    logo
+    logo,
+    logpaydunya,
+    stripe,
+    contct
 
     
   },
