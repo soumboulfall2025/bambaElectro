@@ -42,7 +42,7 @@ const Add = ({ token }) => {
 
 
 
-            const response = await axios.post(backendUrl + "api/product/add", formData, { headers: { token } })
+            const response = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } })
             if (response.data.success) {
                 toast.success(response.data.message)
                 setName("")
@@ -106,13 +106,13 @@ const Add = ({ token }) => {
                     <select onChange={(e) => setCategory(e.target.value)} className='w-full px-3 py-2'>
                         <option value="ElectroMenager">ElectroMenager</option>
                         <option value="Ammeublement">Ammeublement</option>
-                        <option value=""></option>
+                        <option value="SmartPhone">SmartPhone</option>
                     </select>
                 </div>
                 <div>
                     <p className='mb-2'>Sub Category</p>
                     <select onChange={(e) => setSubCategory(e.target.value)} className='w-full px-3 py-2'>
-                        <option value="Mixeur">Mixeur</option>
+                        <option value="Android">Android</option>
                         <option value="Machine">Machine</option>
                         <option value="SmartTv">SmartTv</option>
                     </select>

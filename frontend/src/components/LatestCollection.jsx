@@ -9,9 +9,8 @@ const LatestCollection = () => {
   const [LatestProducts, setLatestProducts] = useState([]);
 
   useEffect(() => {
-    console.log("Products in LatestCollection:", products);
     if (products && products.length > 0) {
-      setLatestProducts(products.slice(0, 5));
+      setLatestProducts(products.slice(0, 10)); // Prend les 10 premiers produits
     }
   }, [products])
 

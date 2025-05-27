@@ -13,8 +13,7 @@ const RelatedProducts = ({Category, sousCategory}) => {
             let productsCopy = products.slice()
             productsCopy = productsCopy.filter((item)=>Category === item.category)
             productsCopy = productsCopy.filter((item)=>sousCategory === item.subCategory)
-            console.log('Related products images:', productsCopy.map(p => p.image))
-
+           
             setRelated(productsCopy.slice(0,5));
             
         }
@@ -43,7 +42,7 @@ const RelatedProducts = ({Category, sousCategory}) => {
   return (
     <ProductItem 
       key={index} 
-      id={item.id} 
+      id={item._id} 
       name={item.name} 
       price={item.price} 
       image={imageUrl} 

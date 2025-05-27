@@ -50,7 +50,7 @@ const registerUser = async (req, res) => {
             return res.json({ success: false, message: "Please enter a valid email  " })
         }
 
-        if (password.lenght < 8) {
+        if (password.length < 8) {
             return res.json({ success: false, message: "Please enter a strong password  " })
         }
 
@@ -85,11 +85,11 @@ const registerUser = async (req, res) => {
 
 // routes for admin login 
 const adminLogin = async (req, res) => {
-
     try {
         const { email, password } = req.body
         if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
-            const token = jwt.sign(email + password, process.env.JWT_SECRET)
+            const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1d' })
+
             res.json({ success: true, token })
         } else {
             res.json({ success: false, message: "Invalid credentials" })
@@ -97,10 +97,9 @@ const adminLogin = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message })
-
     }
-
 }
+
 
 
 
