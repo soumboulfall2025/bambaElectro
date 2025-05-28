@@ -31,7 +31,7 @@ import dropdown from './caret-down-solid.svg';
 import star from './star-solid.svg';
 import bin from './bin_icon.png'
 import logo from './bmb.png'
-import contct from './contact_img.png'
+
 import paytech from "./paytech.png"
 
 const products = [
@@ -267,7 +267,7 @@ const assets = {
     stripedFashionShirt11,
     logo,
    
-    contct,
+
     paytech
 
     
