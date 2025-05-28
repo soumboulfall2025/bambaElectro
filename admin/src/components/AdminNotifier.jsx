@@ -1,0 +1,38 @@
+import React, { useEffect } from "react";
+import { io } from "socket.io-client";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// Configure le toast une fois dans l'app
+toast.configure();
+
+// Initialise la connexion Socket.IO (remplace par l'URL de ton backend)
+const socket = io("https://bambaelectro-backend.onrender.com");
+
+const AdminNotifier = () => {
+  useEffect(() => {
+    // Envoie un event pour s'identifier comme admin (optionnel selon ton backend)
+    socket.emit("register-admin");
+
+    // Écoute l'événement order-notification
+    socket.on("order-notification", (data) => {
+      toast.success(
+        `🛒 Nouvelle commande de ${data.nomClient} (${data.total}€)`,
+        {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        }
+      );
+    });
+
+    // Cleanup au démontage
+    return () => {
+      socket.off("order-notification");
+      socket.disconnect();
+    };
+  }, []);
+
+  return null; // Ce composant n'affiche rien à l'écran
+};
+
+export default AdminNotifier;
