@@ -7,12 +7,12 @@ import axios from "axios";
 
 // Renomme ici pour éviter le conflit
 const { products: staticAssetsProducts } = assets;
-const url = "https://bambaelectro-backend.onrender.com"
+
 
 const ShopContextProvider = (props) => {
     const currency = "$";
     const delivery_fee = 10;
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = "https://bambaelectro-backend.onrender.com";
 
     const [search, setSearch] = useState("");
     const [showSearch, setShowSearch] = useState(false);
