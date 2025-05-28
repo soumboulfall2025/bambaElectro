@@ -3,6 +3,8 @@ import userModel from "../models/userModel.js";
 import paydunya from "paydunya";
 import { setup, store } from "../config/paydunyaConfig.js"
 
+const frontend_URL = "https://bambaelectro-frontend.onrender.com/"
+
 
 
 
