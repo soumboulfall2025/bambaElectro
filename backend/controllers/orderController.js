@@ -2,6 +2,10 @@ import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 import paydunya from "paydunya";
 import { setup, store } from "../config/paydunyaConfig.js"
+import { io } from "../server.js";
+
+
+const frontend_URL = "https://bambaelectro-frontend.onrender.com/"
 
 
 
@@ -32,6 +36,15 @@ const placeOrder = async (req, res) => {
 
     await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
+    // -- ICI émission de la notif --
+    io.emit("order-notification", {
+      message: "Nouvelle commande passée",
+      nomClient: req.user.name || "Client inconnu",
+      total: amount,
+      orderId: newOrder._id,
+      date: new Date(),
+    });
+
     res.json({
       success: true,
       message: "Order placed successfully",
@@ -47,6 +60,7 @@ const placeOrder = async (req, res) => {
   }
 };
 
+export default placeOrder;
 
 
 // Placing order using stripe method
