@@ -32,7 +32,6 @@ import star from './star-solid.svg';
 import bin from './bin_icon.png'
 import logo from './bmb.png'
 
-import paytech from "./paytech.png"
 
 const products = [
   {
@@ -268,7 +267,6 @@ const assets = {
     logo,
    
 
-    paytech
 
     
   },
