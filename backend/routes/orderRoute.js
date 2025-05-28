@@ -1,5 +1,5 @@
 import express from 'express';
-import { allOrders, updateStatus, placeOrder, placeOrderStripe, placeOrderPaydunya, userOrders } from '../controllers/orderController.js';
+import { allOrders, updateStatus, placeOrder, placeOrderStripe, placeOrderPaydunya, userOrders, webhookPaytech} from '../controllers/orderController.js';
 import adminAuth from '../middleware/adminAuth.js';
 import authUser from '../middleware/auth.js';
 
@@ -13,6 +13,9 @@ orderRouter.post("/status",adminAuth,updateStatus)
 orderRouter.post("/place",authUser,placeOrder)
 orderRouter.post("/stripe",authUser,placeOrderStripe)
 orderRouter.post("/paydunya",authUser,placeOrderPaydunya)
+orderRouter.post("/paytech", webhookPaytech);
+
+
 
 // user features
 orderRouter.post("/userorders",authUser,userOrders)

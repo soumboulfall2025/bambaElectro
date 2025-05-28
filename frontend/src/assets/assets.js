@@ -34,6 +34,7 @@ import logo from './bmb.png'
 import logpaydunya from './logo_doc.png'
 import stripe from './stripe_logo.png'
 import contct from './contact_img.png'
+import paytech from "./paytech.png"
 
 const products = [
   {
@@ -269,7 +270,8 @@ const assets = {
     logo,
     logpaydunya,
     stripe,
-    contct
+    contct,
+    paytech
 
     
   },
