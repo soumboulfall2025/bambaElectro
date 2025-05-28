@@ -7,32 +7,35 @@ import userRouter from "./routes/userRoute.js"
 import productRouter from "./routes/productRoute.js"
 import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
-import dotenv from "dotenv";
-dotenv.config();
+import dotenv from "dotenv"
+dotenv.config()
 
-
-
-// App Config 
 const app = express()
 const port = process.env.PORT || 4000
-connectDB()
-await connectCloudinary()
 
-// middleware
+async function main() {
+  try {
+    await connectDB()
+    await connectCloudinary()
 
-app.use(express.json())
-app.use(cors())
+    app.use(express.json())
+    app.use(cors())
 
+    app.use("/api/user", userRouter)
+    app.use("/api/product", productRouter)
+    app.use("/api/cart", cartRouter)
+    app.use("/api/order", orderRouter)
 
-// api endpoints
-app.use("/api/user",userRouter)
-app.use("/api/product",productRouter)
-app.use("/api/cart",cartRouter)
-app.use("/api/order",orderRouter)
+    app.get("/", (req, res) => {
+      res.send("API Working")
+    })
 
+    app.listen(port, () => {
+      console.log("Server started on port: " + port)
+    })
+  } catch (error) {
+    console.error("Failed to start server:", error)
+  }
+}
 
-app.get("/",(req,res)=>{
-    res.send("API Working")
-})
-
-app.listen(port,()=> console.log("Server started on port : " +port))
+main()
