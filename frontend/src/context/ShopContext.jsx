@@ -7,6 +7,7 @@ import axios from "axios";
 
 // Renomme ici pour éviter le conflit
 const { products: staticAssetsProducts } = assets;
+const url = "https://bambaelectro-backend.onrender.com"
 
 const ShopContextProvider = (props) => {
     const currency = "$";
