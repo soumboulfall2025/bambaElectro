@@ -268,5 +268,29 @@ const updateStatus = async (req, res) => {
 
 }
 
+ const getDashboardStats = async (req, res) => {
+  try {
+    const totalOrders = await Order.countDocuments();
+    const totalRevenueData = await Order.aggregate([
+      { $match: { payment: true } },
+      { $group: { _id: null, total: { $sum: "$amount" } } }
+    ]);
+    const totalRevenue = totalRevenueData[0]?.total || 0;
 
-export { placeOrder, placeOrderStripe, placeOrderPaydunya, allOrders, userOrders, updateStatus,webhookPaytech };
+    const totalUsers = await User.countDocuments();
+    const totalProducts = await Product.countDocuments();
+
+    res.json({
+      totalOrders,
+      totalRevenue,
+      totalUsers,
+      totalProducts
+    });
+  } catch (error) {
+    console.error("Erreur stats dashboard:", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+};
+
+
+export { placeOrder, placeOrderStripe, placeOrderPaydunya, allOrders, userOrders, updateStatus,webhookPaytech, getDashboardStats };
