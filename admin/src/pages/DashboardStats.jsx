@@ -13,7 +13,7 @@ const DashboardStats = ({ token }) => {
 
     const fetchStats = async () => {
         try {
-            const response = await axios.get(backendUrl + "/api/order/stats", {
+            const response = await axios.post(backendUrl + "/api/order/stats", {},{
                 headers: { token },
             });
             if (response.data) {
