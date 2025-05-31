@@ -1,8 +1,11 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
+import productModel from "../models/productModel.js";
+
 import paydunya from "paydunya";
 import { setup, store } from "../config/paydunyaConfig.js"
 import { io } from "../server.js";
+
 
 
 const frontend_URL = "https://bambaelectro-frontend.onrender.com/"
@@ -270,15 +273,15 @@ const updateStatus = async (req, res) => {
 
 const getDashboardStats = async (req, res) => {
   try {
-    const totalOrders = await OrderModel.countDocuments()
-    const totalRevenueAgg = await OrderModel.aggregate([
+    const totalOrders = await orderModel.countDocuments()
+    const totalRevenueAgg = await orderModel.aggregate([
       { $match: { payment: true } },
       { $group: { _id: null, total: { $sum: "$amount" } } }
     ])
     const totalRevenue = totalRevenueAgg[0]?.total || 0
 
-    const totalUsers = await UserModel.countDocuments()
-    const totalProducts = await ProductModel.countDocuments()
+    const totalUsers = await userModel.countDocuments()
+    const totalProducts = await productModel.countDocuments()
 
     res.json({
       totalOrders,
