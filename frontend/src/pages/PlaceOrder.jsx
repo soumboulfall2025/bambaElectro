@@ -72,24 +72,26 @@ const PlaceOrder = () => {
           console.log("Réponse COD :", response.data);
 
           if (response.data.success) {
+            const total = getCartAmount() + delivery_fee; // 🟡 Calcul avant vidage
+
+            // Génération du message WhatsApp personnalisé
+            const productListText = orderItems.map(item =>
+              `- ${item.name} (${item.size}) x${item.quantity}`
+            ).join('%0A'); // %0A = saut de ligne
+
+            const message = encodeURIComponent(
+              `Bonjour, je suis ${formData.firstName} ${formData.lastName}. Je viens de passer une commande d’un montant total de ${total} FCFA.%0A%0AVoici le détail de ma commande :%0A${productListText}%0A%0A📞 Tel : ${formData.phone}`
+            );
+
+            const whatsappUrl = `https://wa.me/221787203975?text=${message}`;
+
             setOrderStatus(response.data.message);
             setErrorStatus(null);
             setCartItems({});
             navigate('/orders');
 
-            // Génération du message WhatsApp personnalisé avec les détails
+            // ✅ Ouvre WhatsApp après 1.5 sec
             setTimeout(() => {
-              let productListText = orderItems.map(item =>
-                `- ${item.name} (${item.size}) x${item.quantity}`
-              ).join('%0A'); // %0A = saut de ligne
-
-              const total = getCartAmount() + delivery_fee;
-
-              const message = encodeURIComponent(
-                `Bonjour, je suis ${formData.firstName} ${formData.lastName}. Je viens de passer une commande d’un montant total de ${total} FCFA.%0A%0AVoici le détail de ma commande :%0A${productListText}`
-              );
-
-              const whatsappUrl = `https://wa.me/221787203975?text=${message}`;
               window.open(whatsappUrl, '_blank');
             }, 1500);
           } else {
@@ -98,6 +100,7 @@ const PlaceOrder = () => {
           }
           break;
         }
+
 
 
         case "paydunya": {
