@@ -10,7 +10,7 @@ const { products: staticAssetsProducts } = assets;
 
 
 const ShopContextProvider = (props) => {
-    const currency = "$";
+    const currency = "F CFA";
     const delivery_fee = 10;
     const backendUrl = "https://bambaelectro-backend.onrender.com";
 
