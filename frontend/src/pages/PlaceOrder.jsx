@@ -80,6 +80,7 @@ const PlaceOrder = () => {
             )
             const rawMessage = `Bonjour, je suis ${formData.firstName} ${formData.lastName}
              Je viens de passer une commande d’un montant total de ${total} FCFA
+             dans votre site web Bamba_Electro
              Voici le détail de ma commande :${productListText}
              📞 Tel : ${formData.phone}`
             const message = encodeURIComponent(rawMessage);
