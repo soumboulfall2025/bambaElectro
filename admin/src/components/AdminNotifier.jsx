@@ -3,8 +3,7 @@ import { io } from "socket.io-client";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Configure le toast une fois dans l'app
-toast.configure();
+
 
 // Initialise la connexion Socket.IO (remplace par l'URL de ton backend)
 const socket = io("https://bambaelectro-backend.onrender.com");
