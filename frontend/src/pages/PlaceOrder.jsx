@@ -65,32 +65,39 @@ const PlaceOrder = () => {
 
       switch (method) {
         case "cod": {
-  const response = await axios.post(`${backendUrl}/api/order/place`, orderData, {
-    headers: { token }
-  });
+          const response = await axios.post(`${backendUrl}/api/order/place`, orderData, {
+            headers: { token }
+          });
 
-  console.log("Réponse COD :", response.data);
+          console.log("Réponse COD :", response.data);
 
-  if (response.data.success) {
-    setOrderStatus(response.data.message);
-    setErrorStatus(null);
-    setCartItems({});
-    navigate('/orders');
+          if (response.data.success) {
+            setOrderStatus(response.data.message);
+            setErrorStatus(null);
+            setCartItems({});
+            navigate('/orders');
 
-    // Redirection vers WhatsApp après 1.5 seconde
-    setTimeout(() => {
-      const message = encodeURIComponent(
-        `Bonjour, je suis ${formData.firstName} ${formData.lastName}. Je viens de passer une commande d’un montant de ${getCartAmount() + delivery_fee} FCFA sur votre boutique.`
-      );
-      const whatsappUrl = `https://wa.me/221787203975?text=${message}`;
-      window.open(whatsappUrl, '_blank');
-    }, 1500);
-  } else {
-    setOrderStatus(null);
-    setErrorStatus(response.data.message);
-  }
-  break;
-}
+            // Génération du message WhatsApp personnalisé avec les détails
+            setTimeout(() => {
+              let productListText = orderItems.map(item =>
+                `- ${item.name} (${item.size}) x${item.quantity}`
+              ).join('%0A'); // %0A = saut de ligne
+
+              const total = getCartAmount() + delivery_fee;
+
+              const message = encodeURIComponent(
+                `Bonjour, je suis ${formData.firstName} ${formData.lastName}. Je viens de passer une commande d’un montant total de ${total} FCFA.%0A%0AVoici le détail de ma commande :%0A${productListText}`
+              );
+
+              const whatsappUrl = `https://wa.me/221787203975?text=${message}`;
+              window.open(whatsappUrl, '_blank');
+            }, 1500);
+          } else {
+            setOrderStatus(null);
+            setErrorStatus(response.data.message);
+          }
+          break;
+        }
 
 
         case "paydunya": {
