@@ -16,10 +16,19 @@ dotenv.config()
 
 const app = express()
 const server = http.createServer(app)
+
+const allowedOrigins = [
+  "https://bambaelectro-admin.onrender.com",
+  "https://bambaelectro-frontend.onrender.com",
+  "http://localhost:3000",  // admin local
+  "http://localhost:5173",  // front local
+]
+
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
+    credentials: true,
   }
 })
 
@@ -34,7 +43,12 @@ async function main() {
     await connectCloudinary()
 
     app.use(express.json())
-    app.use(cors())
+
+    // Middleware CORS
+    app.use(cors({
+      origin: allowedOrigins,
+      credentials: true,
+    }))
 
     // Routes API
     app.use("/api/user", userRouter)
@@ -43,18 +57,18 @@ async function main() {
     app.use("/api/order", orderRouter)
 
     app.get("/", (req, res) => {
-      res.send("API Working")
+      res.send("API Working ✅")
     })
 
-    // Gestion des sockets
+    // Gestion WebSocket
     let adminSocketId = null
 
     io.on("connection", (socket) => {
-      console.log("🟢 Nouvelle connexion socket :", socket.id)
+      console.log("🟢 Socket connecté :", socket.id)
 
       socket.on("register-admin", () => {
         adminSocketId = socket.id
-        console.log("👑 Admin connecté :", adminSocketId)
+        console.log("👑 Admin enregistré :", adminSocketId)
       })
 
       socket.on("disconnect", () => {
@@ -65,12 +79,12 @@ async function main() {
       })
     })
 
-    // Lancement serveur HTTP + WebSocket
+    // Lancement du serveur
     server.listen(port, () => {
-      console.log("🚀 Server + WebSocket démarré sur le port : " + port)
+      console.log("🚀 Backend + Socket.io démarré sur le port :", port)
     })
   } catch (error) {
-    console.error("❌ Erreur au démarrage du serveur :", error)
+    console.error("❌ Erreur au démarrage :", error)
   }
 }
 
