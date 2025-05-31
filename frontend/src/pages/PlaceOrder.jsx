@@ -77,9 +77,11 @@ const PlaceOrder = () => {
             // Génération du message WhatsApp personnalisé
             const productListText = orderItems.map(item =>
               `- ${item.name} (${item.size}) x${item.quantity}`
-            ).join('\n'); // %0A = saut de ligne
-
-            const rawMessage = `Bonjour, je suis ${formData.firstName} ${formData.lastName}. Je viens de passer une commande d’un montant total de ${total} FCFA.\n\n🧾Voici le détail de ma commande :%0A${productListText}%0A%0A📞 Tel : ${formData.phone}`
+            )
+            const rawMessage = `Bonjour, je suis ${formData.firstName} ${formData.lastName}
+             Je viens de passer une commande d’un montant total de ${total} FCFA
+             Voici le détail de ma commande :${productListText}
+             📞 Tel : ${formData.phone}`
             const message = encodeURIComponent(rawMessage);
 
 
