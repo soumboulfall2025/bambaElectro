@@ -85,7 +85,7 @@ const PlaceOrder = () => {
             const message = encodeURIComponent(rawMessage);
 
 
-            const whatsappUrl = `https://wa.me/221787203975?text=${message}`;
+            const whatsappUrl = `https://wa.me/221772922833?text=${message}`;
 
             setOrderStatus(response.data.message);
             setErrorStatus(null);
