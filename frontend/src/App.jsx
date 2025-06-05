@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
+import SitemapRedirect from './pages/SitemapRedirect'
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/orders' element={<Orders />} />
+        <Route path='/sitemap.xml' element={<SitemapRedirect />} />
 
         <Route path='*' element={<div>404 Not Found</div>} />
       </Routes>
