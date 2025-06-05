@@ -1,5 +1,5 @@
 import express from 'express';
-import Product from '../models/product.model.js'; // adapte le nom du fichier modèle si besoin
+import Product from '../models/productModel.js'; // adapte le nom du fichier modèle si besoin
 
 const router = express.Router();
 
