@@ -22,6 +22,8 @@ const allowedOrigins = [
   "https://bambaelectro-frontend.onrender.com",
   "http://localhost:3000",  // admin local
   "http://localhost:5173",  // front local
+  "https://bambaelectro.com"
+  
 ]
 
 const io = new Server(server, {
