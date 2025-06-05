@@ -10,6 +10,7 @@ import userRouter from "./routes/userRoute.js"
 import productRouter from "./routes/productRoute.js"
 import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
+import siteMap from "./routes/siteMap.js"
 
 import dotenv from "dotenv"
 dotenv.config()
@@ -55,6 +56,8 @@ async function main() {
     app.use("/api/product", productRouter)
     app.use("/api/cart", cartRouter)
     app.use("/api/order", orderRouter)
+
+    app.use("/", siteMap)
 
     app.get("/", (req, res) => {
       res.send("API Working ✅")
