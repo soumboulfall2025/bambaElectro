@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css"
 
 import AdminNotifier from './components/AdminNotifier' // <-- import ici
 
-export const backendUrl = "https://bambaelectro-backend.onrender.com"
+export const backendUrl = "https://backend-cz4a.onrender.com"
 export const currency = "F CFA"
 
 const App = () => {
