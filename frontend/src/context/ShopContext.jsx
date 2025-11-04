@@ -12,7 +12,7 @@ const { products: staticAssetsProducts } = assets;
 const ShopContextProvider = (props) => {
     const currency = "F CFA";
     const delivery_fee = 2000;
-    const backendUrl = import.meta.env.VITE_API_URL;
+    const backendUrl = "https://backend-cz4a.onrender.com";
     
     const [search, setSearch] = useState("");
     const [showSearch, setShowSearch] = useState(false);
@@ -185,4 +185,5 @@ useEffect(() => {
 };
 
 export default ShopContextProvider;
+
 
