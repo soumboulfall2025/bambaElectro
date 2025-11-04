@@ -19,6 +19,7 @@ const app = express()
 const server = http.createServer(app)
 
 const allowedOrigins = [
+  "https://admin-wc4z.onrender.com",
   "https://frontend-nxcn.onrender.com",
   "https://bambaelectro-admin.onrender.com",
   "https://bambaelectro-frontend.onrender.com",
@@ -95,4 +96,5 @@ async function main() {
 }
 
 main()
+
 
