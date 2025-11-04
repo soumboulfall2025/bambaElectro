@@ -25,7 +25,8 @@ const allowedOrigins = [
   "https://bambaelectro-frontend.onrender.com",
   "http://localhost:3000",  // admin local
   "http://localhost:5173",  // front local
-  "https://bambaelectro.com"
+  "https://bambaelectro.com",
+  "https://www.bambaelectro.com"
   
 ]
 
@@ -96,5 +97,6 @@ async function main() {
 }
 
 main()
+
 
 
