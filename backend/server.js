@@ -19,6 +19,7 @@ const app = express()
 const server = http.createServer(app)
 
 const allowedOrigins = [
+  "https://frontend-nxcn.onrender.com",
   "https://bambaelectro-admin.onrender.com",
   "https://bambaelectro-frontend.onrender.com",
   "http://localhost:3000",  // admin local
@@ -94,3 +95,4 @@ async function main() {
 }
 
 main()
+
